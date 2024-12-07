@@ -1,0 +1,88 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70%;
+    gap: 50px;
+    .titleContainer{
+      text-align: center;
+      h2{
+        font-size: 3rem;
+        color: var(--secondary-accent);
+      }
+    }
+  }
+  
+  /* Caja del formulario */
+  .login-box {
+    text-align: center;
+    color: var(--secondary-text);
+  }
+  
+  
+ 
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--secondary-accent);
+  }
+  
+  .form-group img {
+    height: 25px;
+  }
+  
+  .form-group input {
+    padding: 12px;
+    color: var(--primary-text);
+    font-size: 14px;
+    border: none;
+    background: none;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+  }
+  
+  /* Botón */
+  .btn {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--secondary-accent);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-accent);
+  }
+  
+  /* Link de registro */
+  .register-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--secondary-text);
+  }
+  
+  .register-link a {
+    color: var(--primary-accent);
+    text-decoration: none;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (min-width:1000px) {
+    .login-container{
+      align-items: center;
+      .login-box{
+        width: 30%;
+      }
+    }
+  }
