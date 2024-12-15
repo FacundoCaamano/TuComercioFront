@@ -1,0 +1,69 @@
+<div class="login-container">
+    <div class="titleContainer">
+        <h2>Crea tu cuenta</h2>
+    </div>
+    <div class="login-box">
+        <form [formGroup]="formRegister" >
+            <div class="form-group">
+                <img  src="assets/icons/username.png" alt="username">
+                <input 
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                    placeholder="Ingrese su nombre de usuario"
+                    formControlName="username"
+                    />
+            </div>
+            <div class="form-group">
+                <img  src="assets/icons/correo.png" alt="correo">
+                <input 
+                    type="text"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="Ingrese su correo"
+                    formControlName="email"
+                    />
+                </div>
+                <div>
+                    <p *ngIf="controlEmail.invalid && controlEmail.touched">Campo obligatorio</p>
+                </div>
+            <div class="form-group">
+                <img  src="assets/icons/encerrar.png" alt="password">
+                <input 
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    placeholder="ingresa tu contraseña"
+                    formControlName="password"
+                    />
+                </div>
+                <div>
+                    <p *ngIf="controlPassword.invalid && controlPassword.touched">Campo obligatorio</p>
+                </div>
+            <div class="form-group">
+                <img  src="assets/icons/encerrar.png" alt="password">
+                <input 
+                    type="password"
+                    id="repeatpassword"
+                    name="repeatpassword"
+                    required
+                    placeholder="repita su contraseña"
+                    formControlName="repeatPassword"
+                    />
+                </div>
+                <div>
+                    <p *ngIf="repeatPassword.touched && controlPassword.value !== repeatPassword.value"> las contraseñas deben coincidir</p>
+                </div>
+            <button (click)="register()" class="btn">Crear</button>
+        </form>
+        <p class="register-link">
+            ¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesion</a>
+        </p>
+        <p class="register-link">
+            Continuar sin una cuenta <a routerLink="/home">Click aquí</a>
+        </p>
+    </div>
+</div>
