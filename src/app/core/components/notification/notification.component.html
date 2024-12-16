@@ -1,0 +1,12 @@
+<div class="notifications-container">
+        <div
+        *ngFor="let notification of notifications$ | async"
+        [ngClass]="{
+            'notification-success': notification.type === 'success',
+            'notification-error': notification.type === 'error'
+        }"
+      class="notification-item"
+      >
+      {{ notification.message }}
+    </div>
+</div>

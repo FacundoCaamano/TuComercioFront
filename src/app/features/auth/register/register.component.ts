@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { NotificationService } from 'src/app/core/service/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegisterComponent {
 
-  constructor(private authService:AuthService){
+  constructor(private authService:AuthService, private notificationService:NotificationService){
   }
   controlName= new FormControl('',Validators.required)
   controlEmail= new FormControl<string>('',Validators.required)
@@ -39,6 +40,12 @@ export class RegisterComponent {
         this.authService.register(userData.username,userData.email,userData.password)
     }
   }
-
-
+  notificatinPush(){
+   
+    this.notificationService.addNotification('el usuario se creo','success')
+  }
+  notificatinPushErr(){
+    
+    this.notificationService.addNotification('el usuario no se creo','error')
+  }
 }

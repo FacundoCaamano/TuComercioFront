@@ -1,0 +1,41 @@
+
+.notifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+  }
+  
+  .notification-item {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(100%); /* Empieza desde la derecha */
+    animation: slideInFromRight 0.5s forwards;
+    animation-delay: 0.2s; /* Para tener un ligero retraso */
+  }
+  
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%); /* Fuera de la pantalla a la derecha */
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); /* Llega a su posición original */
+      opacity: 1;
+    }
+    
+  }
+  
+  .notification-success {
+    background-color: #4caf50; /* Verde para éxito */
+  }
+  
+  .notification-error {
+    background-color: #f44336; /* Rojo para errores */
+  }
