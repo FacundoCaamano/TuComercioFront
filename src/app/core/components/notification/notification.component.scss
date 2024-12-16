@@ -33,9 +33,9 @@
   }
   
   .notification-success {
-    background-color: #4caf50; /* Verde para éxito */
+    background-color: var(--primary-accent); /* Verde para éxito */
   }
   
   .notification-error {
-    background-color: #f44336; /* Rojo para errores */
+    background-color: var(--error); /* Rojo para errores */
   }

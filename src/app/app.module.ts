@@ -10,6 +10,7 @@ import { RegisterComponent } from './features/auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotificationComponent } from './core/components/notification/notification.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,7 @@ import { NotificationComponent } from './core/components/notification/notificati
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    NotificationComponent
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
