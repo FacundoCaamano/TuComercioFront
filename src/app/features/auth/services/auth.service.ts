@@ -21,7 +21,7 @@ export class AuthService {
 
   register(username:string,email:string,password:string){
     this.loaderService.show()
-    this.http.post(this.URL + 'user-register',{username,email,password},{withCredentials:true}).subscribe({
+    this.http.post(this.URL + 'auth/user-register',{username,email,password},{withCredentials:true}).subscribe({
       next:()=>{
         console.log('usuario creado');
         this.notificationService.addNotification('usuario creado','success')
@@ -38,5 +38,32 @@ export class AuthService {
         this.loaderService.hide()
       }
     })
+  }
+
+  login(email: string, password: string) {
+    this.loaderService.show(); // Muestra el indicador de carga
+    this.http.post<{ token: string }>(
+      this.URL + 'auth/user-login', 
+      { email, password },
+      { withCredentials: true }
+    ).subscribe({
+      next: (response) => {
+        console.log('Inicio de sesión exitoso');
+        localStorage.setItem('token', response.token);
+  
+        this.notificationService.addNotification('Inicio de sesión exitoso', 'success');
+        this.router.navigate(['home']);
+        this.loaderService.hide();
+      },
+      error: (err) => {
+        console.log({ message: 'Error en el inicio de sesión', err });
+        this.notificationService.addNotification(err.error.message || 'Error en el inicio de sesión', 'error');
+        this.loaderService.hide();
+      },
+      complete: () => {
+        console.log('Petición completada');
+        this.loaderService.hide();
+      },
+    });
   }
 }
